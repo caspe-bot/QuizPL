@@ -19,9 +19,12 @@ export default function Home() {
 
   const submitQuizMutation = useMutation<SubmitQuizResponse, Error, SubmitQuizRequest>({
     mutationFn: async (data) => {
-      return await apiRequest("POST", "/api/submit-quiz", data);
+      const response = await apiRequest("POST", "/api/submit-quiz", data);
+      console.log("Quiz submitted, response:", response);
+      return response;
     },
     onSuccess: (data) => {
+      console.log("Mutation success, setting result:", data.result);
       setQuizResult(data.result);
       setGameState("results");
     },
@@ -89,6 +92,12 @@ export default function Home() {
       </div>
     );
   }
+
+  console.log("Home render - gameState:", gameState, "quizResult:", quizResult, "mutation:", {
+    isPending: submitQuizMutation.isPending,
+    isError: submitQuizMutation.isError,
+    isSuccess: submitQuizMutation.isSuccess,
+  });
 
   return (
     <>
