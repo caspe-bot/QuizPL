@@ -42,5 +42,42 @@ task = "shell.exec"
 args = "npm run dev"
 waitForPort = 5000
 
+[[workflows.workflow]]
+name = "Git Push"
+mode = "sequential"
+author = 48613890
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "git init"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "git add ."
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "git config --global user.email \"caspe@wp.pl\""
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "git config --global user.name \"Jarek\""
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "git commit -m \"first commit\""
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "git branch -M main"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "git remote add origin https://github.com/caspe-bot/QuizPL.git"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "git push -u origin main"
+
 [agent]
 integrations = ["javascript_mem_db:1.0.0"]
