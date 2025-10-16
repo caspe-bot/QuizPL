@@ -3,9 +3,9 @@
   "builds": [
     { "src": "api/index.ts", "use": "@vercel/node" },
     { "src": "client/dist/**/*", "use": "@vercel/static" }
-    ],
+  ],
   "routes": [
     { "src": "/api/(.*)", "dest": "/api/index.ts" },
     { "src": "/(.*)", "dest": "/client/dist/index.html" }
-    ]
-  }
+  ]
+}
