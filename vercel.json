@@ -5,7 +5,7 @@
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "/api/index.ts" },
-    { "src": "/(.*)", "dest": "/client/dist/public/$1" }
+    { "src": "/(.*)", "dest": "/client/dist/$1" }
   ],
-  "outputDirectory": "client/dist/public"
+  "outputDirectory": "client/dist"
 }
