@@ -6,12 +6,18 @@
       "use": "@vercel/node"
     },
     {
-      "src": "client/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist/public",
-        "buildCommand": "npm install && npm run build --prefix client"
-      }
+      "src": "client/dist/public/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1.ts"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/client/dist/public/$1"
     }
   ]
 }
