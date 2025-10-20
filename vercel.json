@@ -13,15 +13,5 @@
         "buildCommand": "npm install && npm run build --prefix client"
       }
     }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1.ts"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/client/dist/public/$1"
-    }
   ]
 }
