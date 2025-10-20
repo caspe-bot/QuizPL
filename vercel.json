@@ -17,7 +17,9 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/client/dist/public/$1"
+      "dest": "client/dist/public/$1"
     }
-  ]
+  ],
+  "buildCommand": "npm run build --prefix client",
+  "outputDirectory": "client/dist/public"
 }
