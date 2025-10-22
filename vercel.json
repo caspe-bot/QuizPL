@@ -8,5 +8,6 @@
     { "src": "/api/(.*)", "dest": "/api/$1.ts" },
     { "src": "/(.*)", "dest": "/client/dist/public/index.html" }
   ],
+  "outputDirectory": "client/dist/public",
   "buildCommand": "npm run build --prefix client"
 }
