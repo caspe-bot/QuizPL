@@ -1,4 +1,4 @@
-echo '{
+{
   "version": 2,
   "builds": [
     { "src": "api/**/*.ts", "use": "@vercel/node" },
@@ -9,4 +9,4 @@ echo '{
     { "src": "/(.*)", "dest": "/client/dist/public/index.html" }
   ],
   "buildCommand": "npm run build --prefix client"
-}' > vercel.json
+}
