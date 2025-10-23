@@ -1,29 +1,21 @@
-import { Switch, Route } from "wouter";
-import { queryClient } from "./lib/queryClient";
-import { QueryClientProvider } from "@tanstack/react-query";
-import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import Home from "@/pages/Home";
-import NotFound from "@/pages/not-found";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import StartScreen from "./pages/StartScreen";
+import QuizScreen from "./pages/QuizScreen";
+import ResultsScreen from "./pages/ResultsScreen";
 
-function Router() {
+const App = () => {
   return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route component={NotFound} />
-    </Switch>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/start" element={<StartScreen />} />
+        <Route path="/quiz" element={<QuizScreen />} />
+        <Route path="/results" element={<ResultsScreen />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
-
-function App() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Router />
-      </TooltipProvider>
-    </QueryClientProvider>
-  );
-}
+};
 
 export default App;

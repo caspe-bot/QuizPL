@@ -1,4 +1,4 @@
-import { type Question } from "@shared/schema";
+import { type Question } from "../shared/schema";
 import { randomUUID } from "crypto";
 
 export interface IStorage {
